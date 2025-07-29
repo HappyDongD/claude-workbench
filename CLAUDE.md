@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Claude Workbench is a comprehensive desktop GUI application for Claude CLI, built specifically for Windows with Tauri (Rust backend) and React TypeScript frontend. It provides an intuitive interface for AI-powered development workflows, project management, session handling, and MCP (Model Context Protocol) server management.
+Magic Claude is a comprehensive desktop GUI application for Claude CLI, built with Tauri (Rust backend) and React TypeScript frontend. It provides an intuitive interface for AI-powered development workflows, project management, session handling, and MCP (Model Context Protocol) server management, with integrated Magic666.top API service support.
 
-The application focuses on core Claude CLI integration optimized for Windows users, providing a streamlined experience for developers working with AI assistance on Windows platforms.
+The application focuses on core Claude CLI integration with Magic666.top services, providing a streamlined experience for developers working with AI assistance across multiple platforms.
 
 ## Core Architecture
 
@@ -99,9 +99,9 @@ cd src-tauri && cargo clippy
 - **Release builds use aggressive optimizations** - opt-level="z", LTO, strip symbols
 
 ### Key Build Outputs
-- Executable: `src-tauri/target/release/claude-workbench.exe`
-- MSI Installer: `src-tauri/target/release/bundle/msi/Claude Workbench_1.0.0_x64_en-US.msi`
-- NSIS Installer: `src-tauri/target/release/bundle/nsis/Claude Workbench_1.0.0_x64-setup.exe`
+- Executable: `src-tauri/target/release/magic-claude.exe`
+- MSI Installer: `src-tauri/target/release/bundle/msi/Magic Claude_1.0.0_x64_en-US.msi`
+- NSIS Installer: `src-tauri/target/release/bundle/nsis/Magic Claude_1.0.0_x64-setup.exe`
 
 ## Architecture Patterns
 
@@ -268,7 +268,7 @@ Comprehensive testing strategy documented in `TESTING_GUIDE.md`:
 - **Session Pool Removal**: All session pool functionality has been completely removed as it was deemed redundant
 - **WSL Support Removal**: WSL integration has been completely removed to simplify the codebase
 - **Project Management**: "Delete" project now means hiding from list while preserving all files
-- **Application Rebranding**: Renamed from "Claudia" to "Claude Workbench"
+- **Application Rebranding**: Renamed from "Claudia" to "Magic Claude" with Magic666.top integration
 
 ### Cross-Platform Compatibility
 - **Windows-specific optimizations**: Process handling and file path management

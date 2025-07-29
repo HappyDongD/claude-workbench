@@ -325,11 +325,20 @@ impl ProcessRegistry {
         info!("Attempting to kill process {} by PID {}", run_id, pid);
 
         let kill_result = if cfg!(target_os = "windows") {
-            use std::os::windows::process::CommandExt;
-            std::process::Command::new("taskkill")
-                .args(["/F", "/PID", &pid.to_string()])
-                .creation_flags(0x08000000) // CREATE_NO_WINDOW
-                .output()
+            #[cfg(target_os = "windows")]
+            {
+                use std::os::windows::process::CommandExt;
+                std::process::Command::new("taskkill")
+                    .args(["/F", "/PID", &pid.to_string()])
+                    .creation_flags(0x08000000) // CREATE_NO_WINDOW
+                    .output()
+            }
+            #[cfg(not(target_os = "windows"))]
+            {
+                std::process::Command::new("kill")
+                    .args(["-TERM", &pid.to_string()])
+                    .output()
+            }
         } else {
             // First try SIGTERM
             let term_result = std::process::Command::new("kill")

@@ -1288,11 +1288,20 @@ pub async fn cancel_claude_execution(
                     if let Some(pid) = pid {
                         log::info!("Attempting system kill as last resort for PID: {}", pid);
                         let kill_result = if cfg!(target_os = "windows") {
-                            use std::os::windows::process::CommandExt;
-                            std::process::Command::new("taskkill")
-                                .args(["/F", "/PID", &pid.to_string()])
-                                .creation_flags(0x08000000) // CREATE_NO_WINDOW
-                                .output()
+                            #[cfg(target_os = "windows")]
+                            {
+                                use std::os::windows::process::CommandExt;
+                                std::process::Command::new("taskkill")
+                                    .args(["/F", "/PID", &pid.to_string()])
+                                    .creation_flags(0x08000000) // CREATE_NO_WINDOW
+                                    .output()
+                            }
+                            #[cfg(not(target_os = "windows"))]
+                            {
+                                std::process::Command::new("kill")
+                                    .args(["-TERM", &pid.to_string()])
+                                    .output()
+                            }
                         } else {
                             std::process::Command::new("kill")
                                 .args(["-KILL", &pid.to_string()])

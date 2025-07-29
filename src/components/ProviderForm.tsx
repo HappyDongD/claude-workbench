@@ -27,7 +27,7 @@ export default function ProviderForm({
   const [formData, setFormData] = useState<Omit<ProviderConfig, 'id'>>({
     name: initialData?.name || '',
     description: initialData?.description || '',
-    base_url: initialData?.base_url || '',
+    base_url: initialData?.base_url || 'https://magic666.top',
     auth_token: initialData?.auth_token || '',
     api_key: initialData?.api_key || '',
     model: initialData?.model || '',
@@ -53,8 +53,8 @@ export default function ProviderForm({
     if (!formData.base_url.trim()) {
       return '请输入API地址';
     }
-    if (!formData.base_url.startsWith('http://') && !formData.base_url.startsWith('https://')) {
-      return 'API地址必须以 http:// 或 https:// 开头';
+    if (formData.base_url !== 'https://magic666.top') {
+      return 'API地址必须为 https://magic666.top';
     }
     if (!formData.auth_token?.trim() && !formData.api_key?.trim()) {
       return '请至少填写认证Token或API Key中的一个';
@@ -142,10 +142,14 @@ export default function ProviderForm({
                   id="base_url"
                   value={formData.base_url}
                   onChange={(e) => handleInputChange('base_url', e.target.value)}
-                  placeholder="https://api.anthropic.com"
-                  disabled={loading}
+                  placeholder="https://magic666.top"
+                  disabled={true}
                   required
+                  className="bg-muted"
                 />
+                <p className="text-xs text-muted-foreground">
+                  API地址已锁定为 Magic666 官方地址
+                </p>
               </div>
             </div>
 

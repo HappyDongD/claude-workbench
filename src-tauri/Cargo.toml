@@ -1,7 +1,7 @@
 [package]
-name = "claude-workbench"
+name = "magic-claude"
 version = "1.0.0"
-description = "Claude Workbench - Professional desktop application and toolkit for Claude CLI"
+description = "Magic Claude - 专业的 Claude CLI 桌面应用和开发工具包"
 authors = ["mufeedvh", "123vviekr"]
 license = "AGPL-3.0"
 edition = "2021"
@@ -9,7 +9,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [lib]
-name = "claude_workbench_lib"
+name = "magic_claude_lib"
 crate-type = ["lib", "cdylib", "staticlib"]
 
 [build-dependencies]

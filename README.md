@@ -1,10 +1,19 @@
-# Claude Workbench
+# Magic Claude
 
-> 专为 Windows 用户设计的 Claude CLI 桌面管理工具
+> Magic Claude - 专业的 Claude CLI 桌面应用和开发工具包
 
-[![Release](https://img.shields.io/github/v/release/anyme123/claude-workbench?color=brightgreen)](https://github.com/anyme123/claude-workbench/releases)
+**由 [Magic666.top](https://magic666.top) 提供技术支持**
+
+Magic666.top 是一个专注于AI技术服务的平台，为开发者和企业提供高质量的 Claude API 代理服务。我们致力于：
+- 🚀 提供稳定可靠的 API 服务
+- 🔒 保障用户数据安全和隐私
+- 💡 不断创新和优化用户体验
+- 🌟 构建开放友好的 AI 生态
+
+[![Release](https://img.shields.io/github/v/release/anyme123/magic-claude?color=brightgreen)](https://github.com/anyme123/magic-claude/releases)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Windows-blue)](https://github.com/anyme123/claude-workbench)
+[![Platform](https://img.shields.io/badge/platform-Cross--Platform-brightgreen)](https://github.com/anyme123/magic-claude)
+[![Magic666](https://img.shields.io/badge/Powered%20by-Magic666.top-purple)](https://magic666.top)
 
 ## ✨ 特性
 
@@ -14,12 +23,12 @@
 - **智能代理**: Agent 系统支持 GitHub 集成和自动化任务执行
 - **MCP 支持**: 完整的 Model Context Protocol 服务器管理
 
-### 🔧 代理商管理（主要功能）
-- **一键切换**: 静默切换不同的 Claude API 代理商，无弹窗干扰
-- **隐私安全**: 本地存储配置，零硬编码敏感信息
-- **自由配置**: 完整的 CRUD 操作界面，支持自定义代理商
-- **立即生效**: 自动重启 Claude 进程，配置立即生效
-- **智能识别**: 自动检测和显示当前使用的配置
+### 🔧 Magic666 集成服务
+- **官方集成**: 深度集成 Magic666.top API 服务
+- **安全可靠**: 由 Magic666.top 提供的稳定 API 服务
+- **隐私保护**: 本地存储配置，保护用户隐私
+- **即插即用**: 预配置 Magic666.top 服务地址
+- **技术支持**: Magic666.top 专业技术团队支持
 
 ### 🌟 用户体验
 - **多语言支持**: 中文优先的国际化界面
@@ -38,17 +47,18 @@
 ### 安装方式
 
 #### 方式一：下载预构建版本 (推荐)
-1. 前往 [Releases 页面](https://github.com/anyme123/claude-workbench/releases)
-2. 下载 Windows 安装包：
-   - `Claude Workbench_x.x.x_x64-setup.exe` (NSIS 安装包)
-   - `Claude Workbench_x.x.x_x64_en-US.msi` (MSI 安装包)
+1. 前往 [Releases 页面](https://github.com/anyme123/magic-claude/releases)
+2. 下载对应平台的安装包：
+   - Windows: `Magic Claude_x.x.x_x64-setup.exe` (NSIS 安装包)
+   - Windows: `Magic Claude_x.x.x_x64_en-US.msi` (MSI 安装包)
+   - macOS: `Magic Claude_x.x.x_x64.dmg` (DMG 安装包)
 3. 运行安装程序并完成安装
 
 #### 方式二：从源代码构建
 ```bash
 # 克隆仓库
-git clone https://github.com/anyme123/claude-workbench.git
-cd claude-workbench
+git clone https://github.com/anyme123/magic-claude.git
+cd magic-claude
 
 # 安装依赖 (推荐使用 Bun)
 bun install
@@ -56,25 +66,26 @@ bun install
 # 开发模式运行
 bun run tauri dev
 
-# 构建生产版本 (Windows)
+# 构建生产版本 (跨平台)
 bun run tauri build
 ```
 
 ## 📖 使用指南
 
 ### 初次启动
-1. 启动 Claude Workbench
+1. 启动 Magic Claude
 2. 如果尚未安装 Claude CLI，应用会提供下载指引
-3. 设置您的项目目录和偏好设置
+3. 应用已预配置 Magic666.top 服务地址
+4. 在设置中添加您的 API 密钥即可开始使用
 
-### 代理商配置
+### Magic666 服务配置
 1. 打开**设置** → **代理商**标签
-2. 点击**添加代理商**配置您的 API 提供商
-3. 填写代理商信息：
-   - **名称**: 代理商的显示名称
+2. 点击**添加代理商**配置您的 Magic666 服务
+3. 填写服务信息：
+   - **名称**: 服务的显示名称（如 "Magic666 主服务"）
    - **描述**: 可选的描述信息
-   - **API 地址**: 代理商的 API 基础URL
-   - **认证Token** 或 **API Key**: 至少填写其中一项
+   - **API 地址**: 已锁定为 https://magic666.top
+   - **认证Token** 或 **API Key**: 输入您的 Magic666.top API 密钥
    - **模型**: 可选的默认模型
 
 ### 项目管理
@@ -92,10 +103,10 @@ bun run tauri build
 - **i18next** - 国际化支持
 
 ### 后端技术栈
-- **Tauri 2** - 现代化的桌面应用框架 (Windows 优化)
+- **Tauri 2** - 现代化的跨平台桌面应用框架
 - **Rust** - 高性能的系统编程语言
 - **SQLite** - 嵌入式数据库
-- **Windows API** - 原生 Windows 系统集成
+- **系统 API** - 原生系统集成（Windows/macOS/Linux）
 
 ### 核心架构
 ```
@@ -125,19 +136,21 @@ bun run tauri build
 - 更新相关文档
 
 ### 报告问题
-- 使用 [Issue 模板](https://github.com/anyme123/claude-workbench/issues/new) 报告 Bug
+- 使用 [Issue 模板](https://github.com/anyme123/magic-claude/issues/new) 报告 Bug
 - 提供详细的复现步骤和环境信息
 - 附加相关的日志文件和截图
+- 联系 Magic666.top 技术支持获取 API 相关帮助
 
 ## 📝 更新日志
 
-### v1.0.0 (2025-07-22)
-- 🎉 初始发布 (Windows 专版)
+### v1.0.0 (2025-07-29)
+- 🎉 Magic Claude 正式发布
 - ✨ 完整的 Claude 项目管理功能
-- 🔧 代理商一键切换系统
+- 🔧 集成 Magic666.top 专业 API 服务
 - 🌍 中文优先的多语言支持
 - 🎨 现代化的用户界面设计
-- 🖥️ Windows 原生优化
+- 🖥️ 跨平台支持（Windows/macOS/Linux）
+- 🔒 API 地址安全锁定机制
 
 ## 📄 许可证
 
@@ -145,7 +158,8 @@ bun run tauri build
 
 ## 🙏 致谢
 
-特别感谢原项目 [@getAsterisk/claudia](https://github.com/getAsterisk/claudia) 提供的基础架构和灵感。本项目基于该项目进行了 Windows 专版的深度定制和优化。
+- **Magic666.top** - 提供稳定可靠的 Claude API 服务和技术支持
+- **原项目致谢** - 感谢 [@getAsterisk/claudia](https://github.com/getAsterisk/claudia) 提供的基础架构和灵感
 
 - [Claude](https://claude.ai/) - 强大的 AI 助手
 - [Tauri](https://tauri.app/) - 现代化的桌面应用框架  
@@ -154,12 +168,15 @@ bun run tauri build
 
 ## 📞 联系方式
 
-- **Issues**: [GitHub Issues](https://github.com/anyme123/claude-workbench/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/anyme123/claude-workbench/discussions)
+- **GitHub**: [GitHub Issues](https://github.com/anyme123/magic-claude/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/anyme123/magic-claude/discussions)
+- **Magic666.top**: [官方网站](https://magic666.top) - API 服务和技术支持
+- **技术支持**: 访问 Magic666.top 获取专业的 API 服务支持
 
 ---
 
 <div align="center">
   <p>如果这个项目对您有帮助，请考虑给我们一个 ⭐</p>
-  <p>Made with ❤️ for Windows users</p>
+  <p>Made with ❤️ by Magic666.top team</p>
+  <p><a href="https://magic666.top">🔗 访问 Magic666.top 获取 API 服务</a></p>
 </div>
