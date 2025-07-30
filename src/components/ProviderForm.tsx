@@ -53,9 +53,6 @@ export default function ProviderForm({
     if (!formData.base_url.trim()) {
       return '请输入API地址';
     }
-    if (formData.base_url !== 'https://magic666.top') {
-      return 'API地址必须为 https://magic666.top';
-    }
     if (!formData.auth_token?.trim() && !formData.api_key?.trim()) {
       return '请至少填写认证Token或API Key中的一个';
     }
@@ -143,12 +140,10 @@ export default function ProviderForm({
                   value={formData.base_url}
                   onChange={(e) => handleInputChange('base_url', e.target.value)}
                   placeholder="https://magic666.top"
-                  disabled={true}
                   required
-                  className="bg-muted"
                 />
                 <p className="text-xs text-muted-foreground">
-                  API地址已锁定为 Magic666 官方地址
+                  推荐使用 Magic666.top 官方地址，也可以填写其他兼容的API地址
                 </p>
               </div>
             </div>
