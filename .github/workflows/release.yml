@@ -133,24 +133,24 @@ jobs:
 
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.version.outputs.version }}
-          release_name: Magic Claude ${{ steps.version.outputs.version }}
+          name: Magic Claude ${{ steps.version.outputs.version }}
           body: |
             ## Magic Claude ${{ steps.version.outputs.version }}
             
             ### 下载 / Downloads
             
             #### Windows
-            - `Magic Claude_*_x64_en-US.msi` - Windows MSI 安装包
-            - `Magic Claude_*_x64-setup.exe` - Windows NSIS 安装包
+            - `Magic-Claude-*-windows-x64.msi` - Windows MSI 安装包
+            - `Magic-Claude-*-windows-x64-setup.exe` - Windows NSIS 安装包
             
             #### macOS
-            - `*.dmg` - macOS 磁盘映像 (支持 Intel 和 Apple Silicon)
-            - `*.app` - macOS 应用程序包
+            - `Magic-Claude-*-macos-intel.dmg` - macOS Intel 磁盘映像
+            - `Magic-Claude-*-macos-apple-silicon.dmg` - macOS Apple Silicon 磁盘映像
             
             #### Linux (暂时不可用)
             - Linux版本构建暂时禁用，将在解决依赖问题后重新启用
@@ -169,44 +169,9 @@ jobs:
             Magic Claude 是一个功能完整的 Claude CLI 桌面 GUI 应用程序。
           draft: false
           prerelease: false
+          files: |
+            windows-release/*.msi
+            windows-release/*setup.exe
+            macos-release/*.dmg
 
-      - name: Upload Windows MSI
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: windows-release/Magic Claude_1.0.0_x64_en-US.msi
-          asset_name: Magic-Claude-${{ steps.version.outputs.version }}-windows-x64.msi
-          asset_content_type: application/x-msi
-
-      - name: Upload Windows NSIS
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: windows-release/Magic Claude_1.0.0_x64-setup.exe
-          asset_name: Magic-Claude-${{ steps.version.outputs.version }}-windows-x64-setup.exe
-          asset_content_type: application/x-msdownload
-
-      - name: Upload macOS Intel DMG
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: macos-release/Magic Claude_1.0.0_x64.dmg
-          asset_name: Magic-Claude-${{ steps.version.outputs.version }}-macos-intel.dmg
-          asset_content_type: application/x-apple-diskimage
-
-      - name: Upload macOS Apple Silicon DMG
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: macos-release/Magic Claude_1.0.0_aarch64.dmg
-          asset_name: Magic-Claude-${{ steps.version.outputs.version }}-macos-apple-silicon.dmg
-          asset_content_type: application/x-apple-diskimage
 
