@@ -137,6 +137,9 @@ const HAIKU_35_OUTPUT_PRICE: f64 = 4.0;
 const HAIKU_35_CACHE_WRITE_PRICE: f64 = 1.0;
 const HAIKU_35_CACHE_READ_PRICE: f64 = 0.08;
 
+// Claude Code session window duration (5 hours)
+const SESSION_WINDOW_HOURS: i64 = 5;
+
 
 // Enhanced session tracking with time window awareness
 fn track_active_sessions(entries: &[UsageEntry]) -> HashMap<String, DateTime<Local>> {

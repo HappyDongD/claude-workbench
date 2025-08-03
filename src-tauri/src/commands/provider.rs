@@ -2,6 +2,7 @@ use serde::{Deserialize, Serialize};
 use std::env;
 use std::fs;
 use std::path::PathBuf;
+use std::process::Command;
 use tauri::{command, AppHandle, Manager};
 use crate::process::ProcessRegistryState;
 
