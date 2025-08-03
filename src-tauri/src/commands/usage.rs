@@ -137,18 +137,6 @@ const HAIKU_35_OUTPUT_PRICE: f64 = 4.0;
 const HAIKU_35_CACHE_WRITE_PRICE: f64 = 1.0;
 const HAIKU_35_CACHE_READ_PRICE: f64 = 0.08;
 
-// Claude Code session window duration (5 hours)
-const SESSION_WINDOW_HOURS: i64 = 5;
-
-// Helper function to check if a session is still active based on Claude Code's 5-hour window
-fn is_session_active(session_start: &str, current_time: &DateTime<Local>) -> bool {
-    if let Ok(start_time) = DateTime::parse_from_rfc3339(session_start) {
-        let elapsed = current_time.signed_duration_since(start_time);
-        elapsed.num_hours() < SESSION_WINDOW_HOURS
-    } else {
-        false
-    }
-}
 
 // Enhanced session tracking with time window awareness
 fn track_active_sessions(entries: &[UsageEntry]) -> HashMap<String, DateTime<Local>> {

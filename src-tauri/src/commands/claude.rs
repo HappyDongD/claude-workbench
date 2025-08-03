@@ -258,7 +258,7 @@ fn escape_prompt_for_cli(prompt: &str) -> String {
     #[cfg(not(target_os = "windows"))]
     {
         // For Unix-like systems, escape shell metacharacters
-        let mut escaped = prompt
+        let escaped = prompt
             .replace('\\', "\\\\")  // Backslashes first
             .replace('\n', "\\n")   // Newlines
             .replace('\r', "\\r")   // Carriage returns
